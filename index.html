@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReaLITy</title>
+    <title>ReaLiTy</title>
     
     
     <!-- Google tag (gtag.js) -->
@@ -39,7 +39,7 @@
         <div class="container is-max-desktop">
             <div class="columns is-centered">
                 <div class="column has-text-centered">
-                    <h1 class="title is-1 publication-title"> ReaLITy: Realistic Environment-Adaptive LiDAR Intensity
+                    <h1 class="title is-1 publication-title"> ReaLiTy: Realistic Environment-Adaptive LiDAR
                         Transformation across Sensors and Weather </h1>
                         <div class="author-container">
 
@@ -93,16 +93,16 @@
                             
                             <!-- Code Link. -->
                             <span class="link-block">
-                  <a href="https://github.com/voodooed/ReaLITy" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://github.com/voodooed/ReaLiTy" target="_blank" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>ReaLITy</span>
+                    <span>ReaLiTy</span>
                   </a>
                 </span>
                             <!-- Code Link. -->
                             <span class="link-block">
-                  <a href="https://github.com/voodooed/ReaLITy" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://github.com/voodooed/ReaLiTy" target="_blank" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
@@ -126,7 +126,7 @@
             <div class="column is-full">
                 
                 <p class="mb-4">
-                    <b>ReaLITy</b> is a unified physics-informed framework for generating sensor-specific LiDAR intensity adaptations and realistic adverse-weather transformations across datasets, sensors, and environments. Unlike existing datasets that provide only raw adverse-weather scans or isolated simulated sweeps, ReaLITy transforms benchmark clear-weather point clouds into physically consistent adverse-weather data, applying geometric distortions and realistic intensity attenuation to produce paired clear-and-adverse weather point clouds while preserving the original dataset format. It also enables sensor-specific intensity transformation for any dataset, allowing direct adaptation to different LiDAR sensors.
+                    <b>ReaLiTy</b> is a unified physics-informed framework for generating sensor-specific LiDAR intensity adaptations and realistic adverse-weather transformations across datasets, sensors, and environments. Unlike existing datasets that provide only raw adverse-weather scans or isolated simulated sweeps, ReaLiTy transforms benchmark clear-weather point clouds into physically consistent adverse-weather data, applying geometric distortions and realistic intensity attenuation to produce paired clear-and-adverse weather point clouds while preserving the original dataset format. It also enables sensor-specific intensity transformation for any dataset, allowing direct adaptation to different LiDAR sensors.
                 </p>
 
                 <p class="mb-4">
@@ -134,7 +134,7 @@
                 </p>
 
                 <p class="mb-4">
-                    Together, ReaLITy and LADS provide the community with a reproducible and extensible foundation for research on LiDAR realism, sensor adaptation, and simulation-driven perception. The generated point clouds exhibit high-fidelity intensity distributions, realistic weather effects, and significantly improved cross-domain consistency.
+                    Together, ReaLiTy and LADS provide the community with a reproducible and extensible foundation for research on LiDAR realism, sensor adaptation, and simulation-driven perception. The generated point clouds exhibit high-fidelity intensity distributions, realistic weather effects, and significantly improved cross-domain consistency.
                 </p>
 
             </div>
@@ -176,9 +176,9 @@
 <section class="section">
     <div class="container is-max-desktop">
 
-        <!-- ReaLITy Framework -->
+        <!-- ReaLiTy Framework -->
         <div class="content has-text-centered">
-            <h2 class="title is-3">ReaLITy Framework</h2>
+            <h2 class="title is-3">ReaLiTy Framework</h2>
         </div>
 
         <div style="text-align: center;">
@@ -189,7 +189,7 @@
         
 
         <p class="is-size-5 mb-4" style="text-align: left;">
-            <b>ReaLITy Framework</b> builds upon our Physics-Informed Cycle-Consistent GAN (PICGAN) architecture 
+            <b>ReaLiTy Framework</b> builds upon our Physics-Informed Cycle-Consistent GAN (PICGAN) architecture 
             which provides a unified physics-informed pipeline for LiDAR realism. It enables:
         </p>
         
@@ -217,41 +217,44 @@
 
         <div class="box" style="font-family: monospace; background:#f7f7f7;">
 <pre>
-ReaLITy/
-│── configs/
-│   ├── sensor_transfer.yaml
-│   ├── weather_transfer.yaml
-│── data/
-│   ├── precomputed/
-│   │   ├── sensor/
-│   │   │   ├── KITTI_style/
-│   │   │   └── nuScenes_style/
-│   │   └── weather/
-│   │       ├── KITTI_snow/
-│   │       ├── KITTI_rain/
-│   │       └── nuScenes_snow/
-│── preprocessing/
-│   ├── compute_range_image.py
-│   ├── apply_geometric_augmentation.py
-│── models/
-│   ├── cyclegan_base.py
-│   ├── losses.py
-│── pipelines/
-│   ├── sensor_transfer.py
-│   ├── weather_transfer.py
-│── scripts/
-│   ├── train.py
-│   ├── inference.py
-│── weights/
-│   ├── sensor/
-│   ├── weather/
-│── README.md
+ReaLiTy/
+│
+├── ReaLiTy.py
+│
+├── models/
+│     └── PICGAN/
+│
+├── prepare_training_data.py
+│
+├── structure/
+│     ├── projection.py
+│     ├── weather.py
+│     ├── backprojection.py
+│
+├── data/
+│     └── prepare_training_data.py
+│
+├── training/
+│     └── train_picgan.py
+│
+├── transform/
+│     └── transform.py
+│
+├── weights/
+│     ├── sensor/
+│     └── weather/
+│
+├── configs/
+│     ├── sensor.yaml
+│     └── weather.yaml
+│
+└── README.md
 </pre>
         </div>
 
         <p class="has-text-centered">
-            <a class="button is-link is-medium" href="https://github.com/voodooed/ReaLITy" target="_blank">
-                🔗 View ReaLITy Framework on GitHub
+            <a class="button is-link is-medium" href="https://github.com/voodooed/ReaLiTy-Framework" target="_blank">
+                🔗 View ReaLiTy Framework on GitHub
             </a>
         </p>
 
@@ -268,7 +271,7 @@ ReaLITy/
         </p>
         
         <ul class="mb-5" style="font-size: 1.1rem; text-align: left; margin-left: 1.2rem; list-style-type: none;">
-            <li>• Curated, transformation-ready point clouds generated using the ReaLITy Framework.</li>
+            <li>• Curated, transformation-ready point clouds generated using the ReaLiTy Framework.</li>
             <li>• Paired and physically consistent LiDAR sweeps for sensor adaptation and weather simulation.</li>
             <li>• Preserved native point-cloud formats for direct comparison with original clean scans.</li>
         </ul>
@@ -304,7 +307,7 @@ ReaLITy/
         </div>
 
         <p class="has-text-centered">
-            <a class="button is-link is-medium" href="https://github.com/voodooed/ReaLITy" target="_blank">
+            <a class="button is-link is-medium" href="https://www.lidaverse.com/category/?dataset=synthetic" target="_blank">
                 📦 Download LADS Dataset
             </a>
         </p>
@@ -315,36 +318,35 @@ ReaLITy/
 
 <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
-        <div class="columns is-centered has-text-justified">
-            <div class="column is-four-fifths">
-                <h2 class="title">BibTeX</h2>
-                <pre>
-<code>@ARTICLE{10871189,
+      <div class="columns is-centered">
+        <div class="column is-two-thirds">
+          <h2 class="title is-4">BibTeX</h2>
+          <p>
+            If you find this work useful in your research, please consider citing the following papers:
+          </p>
+  <pre><code>@ARTICLE{10871189,
     author={Anand, Vivek and Lohani, Bharat and Pandey, Gaurav and Mishra, Rakesh},
-    journal={IEEE Transactions on Intelligent Transportation Systems}, 
-    title={Advancing LiDAR Intensity Simulation Through Learning With Novel Physics-Based Modalities}, 
+    journal={IEEE Transactions on Intelligent Transportation Systems},
+    title={Advancing LiDAR Intensity Simulation Through Learning With Novel Physics-Based Modalities},
     year={2025},
     volume={26},
     number={5},
     pages={6493-6502},
-    keywords={Laser radar;Reflectivity;Sensors;Surface emitting lasers;Semantics;Point cloud compression;Surface treatment;Libraries;Laser theory;Accuracy;LiDAR;simulation;deep learning;autonomous vehicles},
-    doi={10.1109/TITS.2025.3532687}}
+    doi={10.1109/TITS.2025.3532687}
+  }
   
-@INPROCEEDINGS{11097501,
+  @INPROCEEDINGS{11097501,
     author={Anand, Vivek and Lohani, Bharat and Mishra, Rakesh and Pandey, Gaurav},
-    booktitle={2025 IEEE Intelligent Vehicles Symposium (IV)}, 
-    title={Towards Realistic LiDAR Intensity Simulation in Snowy Weather Using Physics-Informed Learning}, 
+    booktitle={2025 IEEE Intelligent Vehicles Symposium (IV)},
+    title={Towards Realistic LiDAR Intensity Simulation in Snowy Weather Using Physics-Informed Learning},
     year={2025},
-    volume={},
-    number={},
     pages={2552-2557},
-    keywords={Measurement;Laser radar;Snow;Semantic segmentation;Data models;Robustness;Indexes;Autonomous vehicles;Physics;Meteorology},
-    doi={10.1109/IV64158.2025.11097501}}
-  </code></pre>
-            </div>
+    doi={10.1109/IV64158.2025.11097501}
+  }</code></pre>
         </div>
+      </div>
     </div>
-</section>
+  </section>
 
 
 <!-- <footer class="footer">
@@ -368,11 +370,12 @@ ReaLITy/
 <footer class="footer">
     <div class="content has-text-centered">
         <p>
-            © 2025 ReaLITy Project. Open-source under MIT License. Developed at IIT Kanpur in collaboration with 
+            © 2025 ReaLiTy Project. Open-source under MIT License. Developed at IIT Kanpur in collaboration with 
             the University of New Brunswick and Texas A&M University and SimDaaS Autonomy Pvt. Ltd.
         </p>
         <p>
-            Developed by <a href="https://home.iitk.ac.in/~viveka21/" target="_blank">Vivek Anand</a> and <a href="https://simdaas.com/" target="_blank">SimDaaS Autonomy Pvt. Ltd</a> 
+            Developed by <a href="https://home.iitk.ac.in/~viveka21/" target="_blank">Vivek Anand</a> in collaboration with 
+            <a href="https://simdaas.com/" target="_blank">SimDaaS Autonomy Pvt. Ltd</a>.
         </p>
     </div>
 </footer>

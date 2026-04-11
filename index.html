@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="stylesheet" href="./static/css/index.css">
     <link rel="icon" href="./static/images/icon.png">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="./static/js/fontawesome.all.min.js"></script>
 </head>
@@ -72,43 +72,58 @@
                     <div class="column has-text-centered">
                         <div class="publication-links">
 
-                            <!-- arXiv Link. -->
-                    <span class="link-block">
-                    <a href="https://ieeexplore.ieee.org/document/11097501" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                            <span class="icon">
-                            <i class="ai ai-arxiv"></i>
+                            <!-- PICGAN. -->
+                            <span class="link-block">
+                            <a href="https://doi.org/10.1109/TITS.2026.3681982" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon">
+                                    <i class="ai ai-arxiv"></i>
+                                    </span>
+                                    <span>PICGAN</span>
+                                </a>
+                                </span>
+
+                                <!-- PICWGAN. -->
+                                <span class="link-block">
+                                    <a href="http://arxiv.org/abs/2604.01254" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                                            <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                            </span>
+                                            <span>PICWGAN</span>
+                                        </a>
+                                        </span>
+
+                            <!-- LBLIS. -->
+                            <span class="link-block">
+                            <a href="https://ieeexplore.ieee.org/document/10871189" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                                <span class="icon">
+                                <i class="ai ai-arxiv"></i>
+                                </span>
+                                <span>LBLIS</span>
+                            </a>
                             </span>
-                            <span>PICGAN</span>
-                        </a>
-                        </span>
-                            <!-- arXiv Link. -->
-                            <span class="link-block">
-                  <a href="https://ieeexplore.ieee.org/document/10871189" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                    </span>
-                    <span>LBLIS</span>
-                  </a>
-                </span>
                             
-                            <!-- Code Link. -->
+                            <!-- ReaLiTY Code Link -->
                             <span class="link-block">
-                  <a href="https://github.com/voodooed/ReaLiTy" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>ReaLiTy</span>
-                  </a>
-                </span>
-                            <!-- Code Link. -->
+                                <a href="https://github.com/voodooed/ReaLiTy-Framework" target="_blank"
+                                class="external-link button is-normal is-rounded is-dark">
+                                <span class="icon">
+                                    <i class="fab fa-github"></i>
+                                </span>
+                                <span>ReaLiTy</span>
+                                </a>
+                            </span>
+                            
+                            <!-- LADS Dataset Link -->
                             <span class="link-block">
-                  <a href="https://github.com/voodooed/ReaLiTy" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>LADS</span>
-                  </a>
-                </span>
+                                <a href="https://www.lidaverse.com/datasets/?id=11" target="_blank"
+                                class="external-link button is-normal is-rounded is-dark">
+                                <span class="icon">
+                                    <i class="fas fa-database"></i>
+                                </span>
+                                <span>LADS</span>
+                                </a>
+                            </span>
+
                         </div>
 
                     </div>
@@ -181,16 +196,47 @@
             <h2 class="title is-3">ReaLiTy Framework</h2>
         </div>
 
-        <div style="text-align: center;">
-            <img src="static/images/CycleGAN_Arch.jpg"
-                 style="padding: 2rem 0rem 0rem 0rem; width: 800px;">
-            <p style="font-size: 1.1rem; margin-top: 0.8rem;"><b>PICGAN Architecture</b></p>
-        </div>
-        
+        <div style="max-width: 900px; margin: 2rem auto; padding: 1.5rem;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.3s ease;"
+     onmouseover="this.style.boxShadow='0 0 20px rgba(59,130,246,0.15)'"
+     onmouseout="this.style.boxShadow='none'">
+
+    <!-- Inner Box 1 -->
+    <div style="text-align: center; padding: 1rem;
+                border: 1px solid rgba(255,255,255,0.35);
+                background: rgba(255,255,255,0.04);
+                border-radius: 10px;">
+        <img src="static/images/CycleGAN_Arch.jpg"
+             style="max-width: 800px; width: 100%;">
+        <p style="margin-top: 2rem; font-size: 1.25rem; font-weight: 700; 
+                  border-bottom: 2px solid rgba(255,255,255,0.6); 
+                  display: inline-block; padding-bottom: 2px;">
+            ReaLiTY – Sensor Transfer - PICGAN
+        </p>
+    </div>
+
+    <!-- Inner Box 2 -->
+    <div style="text-align: center; padding: 1rem; margin-top: 1.5rem;
+                border: 1px solid rgba(255,255,255,0.35);
+                background: rgba(255,255,255,0.04);
+                border-radius: 10px;">
+        <img src="static/images/PICWGAN.jpg"
+             style="max-width: 800px; width: 100%;">
+        <p style="margin-top: 2rem; font-size: 1.25rem; font-weight: 700; 
+                  border-bottom: 2px solid rgba(255,255,255,0.6); 
+                  display: inline-block; padding-bottom: 2px;">
+            ReaLiTY – Weather Transfer - PICWGAN
+        </p>
+    </div>
+
+</div>
 
         <p class="is-size-5 mb-4" style="text-align: left;">
-            <b>ReaLiTy Framework</b> builds upon our Physics-Informed Cycle-Consistent GAN (PICGAN) architecture 
-            which provides a unified physics-informed pipeline for LiDAR realism. It enables:
+            <b>ReaLiTy Framework</b> orchestrates our <b>Physics-Informed Cycle-Consistent GAN (PICGAN)</b> and <b>Physics-Informed Cycle-Consistent Weather GAN (PICWGAN)</b> architecture 
+            within a modular, unified physics-informed pipeline for LiDAR realism. It enables:
         </p>
         
         <ul class="mb-5" style="font-size: 1.1rem; text-align: left; margin-left: 1.2rem; list-style-type: none;">
@@ -208,11 +254,35 @@
         <ul class="mb-5" style="font-size: 1.1rem; text-align: left; margin-left: 1.2rem; list-style-type: none;">
             <li>• Configuration files for all modules.</li>
             <li>• Preprocessing utilities for range images and point clouds.</li>
-            <li>• Physics-guided models.</li>
+            <li>• Physics-informed models.</li>
             <li>• Sensor-transfer and weather-transfer pipelines.</li>
             <li>• Inference scripts for generating realistic intensities and weather effects.</li>
             <li>• A detailed usage guide available in the GitHub repository.</li>
         </ul>
+
+        <div style="max-width: 900px; margin: 2rem auto; padding: 1.5rem;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.3s ease;"
+     onmouseover="this.style.boxShadow='0 0 20px rgba(59,130,246,0.15)'"
+     onmouseout="this.style.boxShadow='none'">
+
+    <!-- Inner Box -->
+    <div style="text-align: center; padding: 1rem; margin-top: 1.5rem;
+                border: 1px solid rgba(255,255,255,0.35);
+                background: rgba(255,255,255,0.04);
+                border-radius: 10px;">
+        <img src="static/images/reality.png"
+             style="max-width: 800px; width: 100%;">
+        <p style="margin-top: 2rem; font-size: 1.25rem; font-weight: 700; 
+                  border-bottom: 2px solid rgba(255,255,255,0.6); 
+                  display: inline-block; padding-bottom: 2px;">
+            ReaLiTY Pipeline
+        </p>
+    </div>
+
+</div>
         
 
         <div class="box" style="font-family: monospace; background:#f7f7f7;">
@@ -222,7 +292,8 @@ ReaLiTy/
 ├── ReaLiTy.py
 │
 ├── models/
-│     └── PICGAN/
+│     ├── PICGAN/
+│     ├── PICWGAN/
 │
 ├── prepare_training_data.py
 │
@@ -307,7 +378,7 @@ ReaLiTy/
         </div>
 
         <p class="has-text-centered">
-            <a class="button is-link is-medium" href="https://www.lidaverse.com/category/?dataset=synthetic" target="_blank">
+            <a class="button is-link is-medium" href="https://www.lidaverse.com/datasets/?id=11" target="_blank">
                 📦 Download LADS Dataset
             </a>
         </p>
@@ -320,29 +391,65 @@ ReaLiTy/
     <div class="container is-max-desktop content">
       <div class="columns is-centered">
         <div class="column is-two-thirds">
+  
           <h2 class="title is-4">BibTeX</h2>
+  
           <p>
-            If you find this work useful in your research, please consider citing the following papers:
+            If you find this work useful in your research, please consider citing:
           </p>
-  <pre><code>@ARTICLE{10871189,
-    author={Anand, Vivek and Lohani, Bharat and Pandey, Gaurav and Mishra, Rakesh},
-    journal={IEEE Transactions on Intelligent Transportation Systems},
-    title={Advancing LiDAR Intensity Simulation Through Learning With Novel Physics-Based Modalities},
-    year={2025},
-    volume={26},
-    number={5},
-    pages={6493-6502},
-    doi={10.1109/TITS.2025.3532687}
+  
+  <pre><code>
+  @article{anand2026sim2real,
+    title   = {Toward Closing the Sim-to-Real Gap: A Physics-Guided Learning Approach for LiDAR Intensity Simulation},
+    author  = {Anand, Vivek and Lohani, Bharat and Kumar, Vaibhav and Mishra, Rakesh and Pandey, Gaurav},
+    journal = {IEEE Transactions on Intelligent Transportation Systems},
+    year    = {2026},
+    note    = {Early access},
+    doi     = {10.1109/TITS.2026.3681982}
   }
   
-  @INPROCEEDINGS{11097501,
-    author={Anand, Vivek and Lohani, Bharat and Mishra, Rakesh and Pandey, Gaurav},
-    booktitle={2025 IEEE Intelligent Vehicles Symposium (IV)},
-    title={Towards Realistic LiDAR Intensity Simulation in Snowy Weather Using Physics-Informed Learning},
-    year={2025},
-    pages={2552-2557},
-    doi={10.1109/IV64158.2025.11097501}
-  }</code></pre>
+  @misc{anand2026weather,
+    title         = {Simulating Realistic LiDAR Data Under Adverse Weather for Autonomous Vehicles: A Physics-Informed Learning Approach},
+    author        = {Anand, Vivek and Lohani, Bharat and Mishra, Rakesh and Pandey, Gaurav},
+    year          = {2026},
+    eprint        = {2604.01254},
+    archivePrefix = {arXiv},
+    primaryClass  = {cs.RO},
+    note          = {arXiv preprint},
+    url           = {https://arxiv.org/abs/2604.01254}
+  }
+  
+  @article{anand2025lblis,
+    title   = {Advancing LiDAR Intensity Simulation Through Learning With Novel Physics-Based Modalities},
+    author  = {Anand, Vivek and Lohani, Bharat and Pandey, Gaurav and Mishra, Rakesh},
+    journal = {IEEE Transactions on Intelligent Transportation Systems},
+    year    = {2025},
+    volume  = {26},
+    number  = {5},
+    pages   = {6493--6502},
+    doi     = {10.1109/TITS.2025.3532687}
+  }
+  
+  @inproceedings{anand2025snow,
+    title     = {Towards Realistic LiDAR Intensity Simulation in Snowy Weather Using Physics-Informed Learning},
+    author    = {Anand, Vivek and Lohani, Bharat and Mishra, Rakesh and Pandey, Gaurav},
+    booktitle = {IEEE Intelligent Vehicles Symposium (IV)},
+    year      = {2025},
+    pages     = {2552--2557},
+    doi       = {10.1109/IV64158.2025.11097501}
+  }
+  
+  @misc{anand2026reality_lads,
+    title         = {ReaLiTy and LADS: A Unified Framework and Dataset Suite for LiDAR Adaptation Across Sensors and Adverse Weather Conditions},
+    author        = {Anand, Vivek and others},
+    year          = {2026},
+    eprint        = {XXXX.XXXXX},
+    archivePrefix = {arXiv},
+    primaryClass  = {cs.RO},
+    note          = {arXiv preprint}
+  }
+  </code></pre>
+  
         </div>
       </div>
     </div>
@@ -370,13 +477,32 @@ ReaLiTy/
 <footer class="footer">
     <div class="content has-text-centered">
         <p>
-            © 2025 ReaLiTy Project. Open-source under MIT License. Developed at IIT Kanpur in collaboration with 
-            the University of New Brunswick and Texas A&M University and SimDaaS Autonomy Pvt. Ltd.
-        </p>
+            © 2025 ReaLiTy Project. Open-source under MIT License. Developed at 
+            <a href="https://gi-iitk.github.io/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="font-medium hover:text-blue-400 transition">
+               GI Lab,
+            </a> IIT Kanpur, in collaboration with 
+            <a href="https://www.unb.ca/fredericton/engineering/depts/gge/index.html"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="font-medium hover:text-blue-400 transition">
+               GGE,
+            </a> University of New Brunswick, Canada,
+            <a href="https://sites.google.com/tamu.edu/cvrl/people?authuser=0"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="font-medium hover:text-blue-400 transition">
+               Computer Vision & Robotics Lab,
+            </a> Texas A&M University, USA.
+          </p>
+
         <p>
-            Developed by <a href="https://home.iitk.ac.in/~viveka21/" target="_blank">Vivek Anand</a> in collaboration with 
+            Developed and led by <a href="https://home.iitk.ac.in/~viveka21/" target="_blank">Vivek Anand</a>, 
+            in collaboration with 
             <a href="https://simdaas.com/" target="_blank">SimDaaS Autonomy Pvt. Ltd</a>.
-        </p>
+          </p>
     </div>
 </footer>
 

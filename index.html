@@ -1,523 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReaLiTy</title>
-    
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YYX00ZNY9V"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ReaLiTy &mdash; Realistic Environment-Adaptive LiDAR Transformation</title>
+<meta name="description" content="ReaLiTy: a unified physics-informed framework for LiDAR intensity adaptation across sensors and adverse weather, with the LADS dataset suite." />
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-        gtag('js', new Date());
+<!-- equations are rendered as self-contained HTML/CSS (no external math dependency) -->
 
-        gtag('config', 'G-YYX00ZNY9V');
-    </script>
-
-    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro|Maison+Mono" rel="stylesheet">
-
-    <link rel="stylesheet" href="./static/css/bulma.min.css">
-    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-    <link rel="stylesheet" href="./static/css/index.css">
-    <link rel="icon" href="./static/images/icon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="./static/js/fontawesome.all.min.js"></script>
+<link rel="stylesheet" href="static/css/style.css" />
+<link rel="icon" type="image/png" href="static/images/icon.png" />
 </head>
-
 <body>
-<section class="hero">
-    <div class="hero-body">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered">
-                <div class="column has-text-centered">
-                    <h1 class="title is-1 publication-title"> ReaLiTy: Realistic Environment-Adaptive LiDAR
-                        Transformation across Sensors and Weather </h1>
-                        <div class="author-container">
 
-                            <div class="author-card">
-                                <a href="https://home.iitk.ac.in/~viveka21/" target="_blank">Vivek Anand</a>
-                                <div class="affiliation">IIT Kanpur</div>
-                            </div>
-                        
-                            <div class="author-card">
-                                <a href="https://iitk.ac.in/bharat-lohani" target="_blank">Bharat Lohani</a>
-                                <div class="affiliation">IIT Kanpur</div>
-                            </div>
-                        
-                            <div class="author-card">
-                                <a href="https://www.unb.ca/faculty-staff/directory/engineering-geomatics/mishra-rakesh.html" target="_blank">Rakesh Mishra</a>
-                                <div class="affiliation">University of New Brunswick</div>
-                            </div>
-                        
-                            <div class="author-card">
-                                <a href="https://engineering.tamu.edu/etid/profiles/pandey-gaurav.html" target="_blank">Gaurav Pandey</a>
-                                <div class="affiliation">Texas A&M University</div>
-                            </div>
-                        
-                        </div>
-                        
-                        
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Physics-Informed LiDAR Adaptation</span>
+    <h1 class="title">ReaLiTy: Realistic Environment-Adaptive <span class="em">LiDAR Transformation</span> across Sensors and Weather</h1>
+    <p class="subtitle">One operator for two domain shifts &mdash; adapt any LiDAR dataset to a new sensor, a new weather condition, or both, while the underlying scene layout stays same.</p>
 
-                    
-
-                    <div class="column has-text-centered">
-                        <div class="publication-links">
-
-                            <!-- PICGAN. -->
-                            <span class="link-block">
-                            <a href="https://doi.org/10.1109/TITS.2026.3681982" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                                    <span class="icon">
-                                    <i class="ai ai-arxiv"></i>
-                                    </span>
-                                    <span>PICGAN</span>
-                                </a>
-                                </span>
-
-                                <!-- PICWGAN. -->
-                                <span class="link-block">
-                                    <a href="http://arxiv.org/abs/2604.01254" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                                            <span class="icon">
-                                            <i class="ai ai-arxiv"></i>
-                                            </span>
-                                            <span>PICWGAN</span>
-                                        </a>
-                                        </span>
-
-                            <!-- LBLIS. -->
-                            <span class="link-block">
-                            <a href="https://ieeexplore.ieee.org/document/10871189" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                                <span class="icon">
-                                <i class="ai ai-arxiv"></i>
-                                </span>
-                                <span>LBLIS</span>
-                            </a>
-                            </span>
-                            
-                            <!-- ReaLiTY Code Link -->
-                            <span class="link-block">
-                                <a href="https://github.com/voodooed/ReaLiTy-Framework" target="_blank"
-                                class="external-link button is-normal is-rounded is-dark">
-                                <span class="icon">
-                                    <i class="fab fa-github"></i>
-                                </span>
-                                <span>ReaLiTy</span>
-                                </a>
-                            </span>
-                            
-                            <!-- LADS Dataset Link -->
-                            <span class="link-block">
-                                <a href="https://www.lidaverse.com/datasets/?id=11" target="_blank"
-                                class="external-link button is-normal is-rounded is-dark">
-                                <span class="icon">
-                                    <i class="fas fa-database"></i>
-                                </span>
-                                <span>LADS</span>
-                                </a>
-                            </span>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="authors">
+      <a class="author" href="https://home.iitk.ac.in/~viveka21/" target="_blank">Vivek Anand</a>
+      <a class="author" href="https://iitk.ac.in/bharat-lohani" target="_blank">Bharat Lohani</a>
+      <a class="author" href="https://www.unb.ca/faculty-staff/directory/engineering-geomatics/mishra-rakesh.html" target="_blank">Rakesh Mishra</a>
+      <a class="author" href="https://engineering.tamu.edu/etid/profiles/pandey-gaurav.html" target="_blank">Gaurav Pandey</a>
     </div>
+    <div class="affils">IIT Kanpur &nbsp;&middot;&nbsp; University of New Brunswick &nbsp;&middot;&nbsp; Texas A&amp;M University</div>
 
-</section>
-
-
-<section class="section" style="padding-bottom: 0px; padding-top: 0px;">
-    <div class="container" style="max-width: 1200px;">
-        <div class="columns">
-            <div class="column is-full">
-                
-                <p class="mb-4">
-                    <b>ReaLiTy</b> is a unified physics-informed framework for generating sensor-specific LiDAR intensity adaptations and realistic adverse-weather transformations across datasets, sensors, and environments. Unlike existing datasets that provide only raw adverse-weather scans or isolated simulated sweeps, ReaLiTy transforms benchmark clear-weather point clouds into physically consistent adverse-weather data, applying geometric distortions and realistic intensity attenuation to produce paired clear-and-adverse weather point clouds while preserving the original dataset format. It also enables sensor-specific intensity transformation for any dataset, allowing direct adaptation to different LiDAR sensors.
-                </p>
-
-                <p class="mb-4">
-                    Building on this framework, we also release the <b>LiDAR Adaptation Dataset Suite (LADS)</b>, a collection of transformation-ready, paired point clouds derived from multiple benchmark datasets. LADS offers fully processed, physically consistent LiDAR sweeps that include realistic intensity adaptation and weather-specific degradations, enabling direct, one-to-one comparison with the original unmodified datasets.
-                </p>
-
-                <p class="mb-4">
-                    Together, ReaLiTy and LADS provide the community with a reproducible and extensible foundation for research on LiDAR realism, sensor adaptation, and simulation-driven perception. The generated point clouds exhibit high-fidelity intensity distributions, realistic weather effects, and significantly improved cross-domain consistency.
-                </p>
-
-            </div>
-        </div>
+    <div class="pill-row">
+      <a class="pill solid" href="https://github.com/voodooed/ReaLiTy-Framework" target="_blank">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        Framework
+      </a>
+      <a class="pill" href="https://www.lidaverse.com/datasets/?id=11" target="_blank">&#128230; LADS Dataset</a>
+      <a class="pill" href="https://doi.org/10.1109/TITS.2026.3681982" target="_blank">PICGAN</a>
+      <a class="pill" href="http://arxiv.org/abs/2604.01254" target="_blank">PICWGAN</a>
+      <a class="pill" href="https://ieeexplore.ieee.org/document/10871189" target="_blank">LBLIS</a>
     </div>
-</section>
+  </div>
+</header>
 
-
-<!-- <div class="has-text-centered content">
-    <h2 class="title is-3">PICGAN Architecture</h2>
-</div>
- -->
-
-
-<section class="section">
-    <div class="container is-max-desktop">
-
-        <div class="has-text-centered content">
-            <h2 class="title is-3">LADS Dataset Sample</h2>
-        </div>
-
-        <div class="has-text-centered" id="dataset_examples">
-            
-            <img src="static/images/kitti.gif" 
-                 style="padding: 2rem 0rem 0rem 0rem; width: 900px;">
-            <p class="prompt"><b>KITTI Clear -> KITTI Snow</b>  <!-- add description here --> </p>
-            
-            <img src="static/images/nuscenes.gif" 
-                 style="padding: 2rem 0rem 0rem 0rem; width: 900px;">
-            <p class="prompt"><b>nuScenes Clear -> nuScenes Rain</b> <!-- add description here --> </p>
-
-            
-        </div>
-
-    </div>
-</section>
-
-
-<section class="section">
-    <div class="container is-max-desktop">
-
-        <!-- ReaLiTy Framework -->
-        <div class="content has-text-centered">
-            <h2 class="title is-3">ReaLiTy Framework</h2>
-        </div>
-
-        <div style="max-width: 900px; margin: 2rem auto; padding: 1.5rem;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.08);
-            transition: all 0.3s ease;"
-     onmouseover="this.style.boxShadow='0 0 20px rgba(59,130,246,0.15)'"
-     onmouseout="this.style.boxShadow='none'">
-
-    <!-- Inner Box 1 -->
-    <div style="text-align: center; padding: 1rem;
-                border: 1px solid rgba(255,255,255,0.35);
-                background: rgba(255,255,255,0.04);
-                border-radius: 10px;">
-        <img src="static/images/CycleGAN_Arch.jpg"
-             style="max-width: 800px; width: 100%;">
-        <p style="margin-top: 2rem; font-size: 1.25rem; font-weight: 700; 
-                  border-bottom: 2px solid rgba(255,255,255,0.6); 
-                  display: inline-block; padding-bottom: 2px;">
-            ReaLiTY – Sensor Transfer - PICGAN
-        </p>
-    </div>
-
-    <!-- Inner Box 2 -->
-    <div style="text-align: center; padding: 1rem; margin-top: 1.5rem;
-                border: 1px solid rgba(255,255,255,0.35);
-                background: rgba(255,255,255,0.04);
-                border-radius: 10px;">
-        <img src="static/images/PICWGAN.jpg"
-             style="max-width: 800px; width: 100%;">
-        <p style="margin-top: 2rem; font-size: 1.25rem; font-weight: 700; 
-                  border-bottom: 2px solid rgba(255,255,255,0.6); 
-                  display: inline-block; padding-bottom: 2px;">
-            ReaLiTY – Weather Transfer - PICWGAN
-        </p>
-    </div>
-
+<!-- ================= SHOUT STRIP ================= -->
+<div class="strip">
+  <div class="wrap">
+    <span class="tag"><span class="dot" style="background:var(--sensor)"></span> Any Sensor</span>
+    <span class="tag"><span class="dot" style="background:var(--weather)"></span> Any Weather</span>
+    <span class="tag"><span class="dot" style="background:var(--invariant)"></span> Physics-Informed</span>
+    <span class="tag"><span class="dot" style="background:#c4cfdb"></span> Open-Source &amp; Reproducible</span>
+  </div>
 </div>
 
-        <p class="is-size-5 mb-4" style="text-align: left;">
-            <b>ReaLiTy Framework</b> orchestrates our <b>Physics-Informed Cycle-Consistent GAN (PICGAN)</b> and <b>Physics-Informed Cycle-Consistent Weather GAN (PICWGAN)</b> architecture 
-            within a modular, unified physics-informed pipeline for LiDAR realism. It enables:
-        </p>
-        
-        <ul class="mb-5" style="font-size: 1.1rem; text-align: left; margin-left: 1.2rem; list-style-type: none;">
-            <li>• Generation of realistic LiDAR intensity across different sensors.</li>
-            <li>• Simulation of adverse weather effects on existing benchmark datasets, creating a paired dataset.</li>
-            <li>• Use of physics cues such as range, incidence angle, and reflectance.</li>
-            <li>• End-to-end tools for preprocessing, model training, inference, and evaluation.</li>
-            <li>• Ready-to-use weights and modular pipelines for both sensor and weather transfer.</li>
-        </ul>
-        
-        <p class="is-size-5 mb-4" style="text-align: left;">
-            The repository provides the following components:
-        </p>
-        
-        <ul class="mb-5" style="font-size: 1.1rem; text-align: left; margin-left: 1.2rem; list-style-type: none;">
-            <li>• Configuration files for all modules.</li>
-            <li>• Preprocessing utilities for range images and point clouds.</li>
-            <li>• Physics-informed models.</li>
-            <li>• Sensor-transfer and weather-transfer pipelines.</li>
-            <li>• Inference scripts for generating realistic intensities and weather effects.</li>
-            <li>• A detailed usage guide available in the GitHub repository.</li>
-        </ul>
+<!-- ================= OVERVIEW ================= -->
+<section id="overview">
+  <div class="wrap body">
+    <div class="kicker">Overview</div>
+    <h2 class="sec">The scene-identical pair that no benchmark provides</h2>
+    <p class="lead">A LiDAR model trained on one sensor in clear weather degrades when moved to a different sensor, or to rain or snow. Correcting such a shift needs the <strong>same scene under two conditions</strong> &mdash; data that real benchmarks cannot supply, because a clear scan and a snow scan are always of different streets.</p>
+    <p><strong>ReaLiTy</strong>(Realistic LiDAR Transformation) transforms benchmark clear-weather point clouds into physically consistent adverse-weather data, applying geometric distortion and realistic intensity attenuation to produce paired clear-and-adverse point clouds while preserving the original dataset format. It also performs sensor-specific intensity transformation for any dataset, adapting a scan to a different LiDAR. Because the scene is held fixed, a source frame and its transform form the physically consistent pair the field currently lacks.</p>
 
-        <div style="max-width: 900px; margin: 2rem auto; padding: 1.5rem;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.08);
-            transition: all 0.3s ease;"
-     onmouseover="this.style.boxShadow='0 0 20px rgba(59,130,246,0.15)'"
-     onmouseout="this.style.boxShadow='none'">
-
-    <!-- Inner Box -->
-    <div style="text-align: center; padding: 1rem; margin-top: 1.5rem;
-                border: 1px solid rgba(255,255,255,0.35);
-                background: rgba(255,255,255,0.04);
-                border-radius: 10px;">
-        <img src="static/images/reality.png"
-             style="max-width: 800px; width: 100%;">
-        <p style="margin-top: 2rem; font-size: 1.25rem; font-weight: 700; 
-                  border-bottom: 2px solid rgba(255,255,255,0.6); 
-                  display: inline-block; padding-bottom: 2px;">
-            ReaLiTY Pipeline
-        </p>
-    </div>
-
-</div>
-        
-
-        <div class="box" style="font-family: monospace; background:#f7f7f7;">
-<pre>
-ReaLiTy/
-│
-├── ReaLiTy.py
-│
-├── models/
-│     ├── PICGAN/
-│     ├── PICWGAN/
-│
-├── prepare_training_data.py
-│
-├── structure/
-│     ├── projection.py
-│     ├── weather.py
-│     ├── backprojection.py
-│
-├── data/
-│     └── prepare_training_data.py
-│
-├── training/
-│     └── train_picgan.py
-│
-├── transform/
-│     └── transform.py
-│
-├── weights/
-│     ├── sensor/
-│     └── weather/
-│
-├── configs/
-│     ├── sensor.yaml
-│     └── weather.yaml
-│
-└── README.md
-</pre>
-        </div>
-
-        <p class="has-text-centered">
-            <a class="button is-link is-medium" href="https://github.com/voodooed/ReaLiTy-Framework" target="_blank">
-                🔗 View ReaLiTy Framework on GitHub
-            </a>
-        </p>
-
-
-        <hr><br>
-
-        <!-- LADS Dataset Section -->
-        <div class="content has-text-centered">
-            <h2 class="title is-3">LiDAR Adaptation Dataset Suite (LADS)</h2>
-        </div>
-
-        <p class="is-size-5 mb-4" style="text-align: left;">
-            <b>LiDAR Adaptation Dataset Suite (LADS)</b> offers:
-        </p>
-        
-        <ul class="mb-5" style="font-size: 1.1rem; text-align: left; margin-left: 1.2rem; list-style-type: none;">
-            <li>• Curated, transformation-ready point clouds generated using the ReaLiTy Framework.</li>
-            <li>• Paired and physically consistent LiDAR sweeps for sensor adaptation and weather simulation.</li>
-            <li>• Preserved native point-cloud formats for direct comparison with original clean scans.</li>
-        </ul>
-        
-        <p class="is-size-5 mb-4" style="text-align: left;">
-            LADS also provides:
-        </p>
-        
-        <ul class="mb-5" style="font-size: 1.1rem; text-align: left; margin-left: 1.2rem; list-style-type: none;">
-            <li>• Sensor-adaptation models and transformed point clouds.</li>
-            <li>• Weather-adaptation models and their corresponding transformed point clouds.</li>
-            <li>• Download links for all datasets (provided below).</li>
-        </ul>
-        
-        
-
-        <div class="content" style="text-align:left;">
-            <h3 class="title is-5">Included Data</h3>
-
-            <p class="is-size-5"><b>• Sensor Adaptation Data</b></p>
-            <ul>
-                <li>VoxelScape → KITTI</li>
-                <li>VoxelScape → nuScenes</li>
-            </ul>
-
-            <p class="is-size-5"><b>• Weather Adaptation Data</b></p>
-            <ul>
-                <li>Clear → Rain (KITTI)</li>
-                <li>Clear → Snow (KITTI)</li>
-                <li>Clear → Rain (nuScenes)</li>
-                <li>Clear → Snow (nuScenes)</li>
-            </ul>
-        </div>
-
-        <p class="has-text-centered">
-            <a class="button is-link is-medium" href="https://www.lidaverse.com/datasets/?id=11" target="_blank">
-                📦 Download LADS Dataset
-            </a>
-        </p>
-
-    </div>
+    <figure class="fig-narrow">
+      <img src="static/images/fig_gap.jpg" alt="The paired-data problem: existing benchmarks confound scene change with domain change; ReaLiTy holds the scene fixed." />
+      <figcaption><b>The paired-data problem.</b> In existing benchmarks a change of sensor or weather always coincides with a change of scene, so the two effects cannot be separated. ReaLiTy transforms a source frame while holding the scene fixed &mdash; the source and its transform differ only in the domain.</figcaption>
+    </figure>
+  </div>
 </section>
 
+<!-- ================= THEORY ================= -->
+<section id="theory">
+  <div class="wrap body">
+    <div class="kicker">Theoretical Foundation</div>
+    <h2 class="sec">Two shifts, one physical origin</h2>
+    <p class="lead">Starting from the LiDAR range equation for an extended Lambertian target, a measured intensity factorises into a scene-intrinsic term and a domain term. This is what makes &ldquo;unified&rdquo; a statement about the problem, not just the code.</p>
 
-<section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <div class="columns is-centered">
-        <div class="column is-two-thirds">
-  
-          <h2 class="title is-4">BibTeX</h2>
-  
-          <p>
-            If you find this work useful in your research, please consider citing:
-          </p>
-  
-  <pre><code>
-  @article{anand2026sim2real,
-    title   = {Toward Closing the Sim-to-Real Gap: A Physics-Guided Learning Approach for LiDAR Intensity Simulation},
-    author  = {Anand, Vivek and Lohani, Bharat and Kumar, Vaibhav and Mishra, Rakesh and Pandey, Gaurav},
-    journal = {IEEE Transactions on Intelligent Transportation Systems},
-    year    = {2026},
-    note    = {Early access},
-    doi     = {10.1109/TITS.2026.3681982}
-  }
-  
-  @misc{anand2026weather,
-    title         = {Simulating Realistic LiDAR Data Under Adverse Weather for Autonomous Vehicles: A Physics-Informed Learning Approach},
-    author        = {Anand, Vivek and Lohani, Bharat and Mishra, Rakesh and Pandey, Gaurav},
-    year          = {2026},
-    eprint        = {2604.01254},
-    archivePrefix = {arXiv},
-    primaryClass  = {cs.RO},
-    note          = {arXiv preprint},
-    url           = {https://arxiv.org/abs/2604.01254}
-  }
-  
-  @article{anand2025lblis,
-    title   = {Advancing LiDAR Intensity Simulation Through Learning With Novel Physics-Based Modalities},
-    author  = {Anand, Vivek and Lohani, Bharat and Pandey, Gaurav and Mishra, Rakesh},
-    journal = {IEEE Transactions on Intelligent Transportation Systems},
-    year    = {2025},
-    volume  = {26},
-    number  = {5},
-    pages   = {6493--6502},
-    doi     = {10.1109/TITS.2025.3532687}
-  }
-  
-  @inproceedings{anand2025snow,
-    title     = {Towards Realistic LiDAR Intensity Simulation in Snowy Weather Using Physics-Informed Learning},
-    author    = {Anand, Vivek and Lohani, Bharat and Mishra, Rakesh and Pandey, Gaurav},
-    booktitle = {IEEE Intelligent Vehicles Symposium (IV)},
-    year      = {2025},
-    pages     = {2552--2557},
-    doi       = {10.1109/IV64158.2025.11097501}
-  }
-  
-  @misc{anand2026reality_lads,
-    title         = {ReaLiTy and LADS: A Unified Framework and Dataset Suite for LiDAR Adaptation Across Sensors and Adverse Weather Conditions},
-    author        = {Anand, Vivek and others},
-    year          = {2026},
-    eprint        = {XXXX.XXXXX},
-    archivePrefix = {arXiv},
-    primaryClass  = {cs.RO},
-    note          = {arXiv preprint}
-  }
-  </code></pre>
-  
+    <div class="theory-box">
+      <div class="eqwrap eqbig math">
+        I <span class="up">=</span> f<sub>s</sub>&hairsp;<span class="up">(</span>&hairsp; K<sub>s</sub> <span class="up">&middot;</span>
+        <span style="color:var(--invariant)"><span class="frac"><span class="n">&rho;&thinsp;cos&thinsp;&theta;</span><span class="d">R<sup>2</sup></span></span></span>
+        <span class="up">&middot;</span> e<sup><span class="up">&minus;2&alpha;R</span></sup>&hairsp;<span class="up">)</span>
+      </div>
+      <div style="text-align:center;margin-top:-6px;"><span class="brace-note">&#9650;&nbsp; &Phi; &mdash; scene-intrinsic, domain-invariant</span></div>
+      <p style="text-align:center;font-size:14.5px;margin-top:6px;">
+        The factor <b style="color:var(--invariant)">&Phi; = &rho;&thinsp;cos&thinsp;&theta; / R&sup2;</b> depends only on scene geometry and material, so it is <b>identical in every domain</b>. The entire shift is carried by the triple <b>(f, K, &alpha;)</b>: the sensor response, the sensor gain, and the atmospheric extinction.
+      </p>
+
+      <div class="triple">
+        <div class="tcol s">
+          <div class="h"><span class="dot" style="background:var(--sensor)"></span> Sensor shift</div>
+          <p><span class="math">f<sub>s</sub>&thinsp;&ne;&thinsp;f<sub>t</sub>, K<sub>s</sub>&thinsp;&ne;&thinsp;K<sub>t</sub></span>; atmosphere fixed. Geometry unchanged &mdash; purely radiometric.</p>
+          <div class="op">&#119967;<sub>&psi;</sub> = Id</div>
+        </div>
+        <div class="tcol w">
+          <div class="h"><span class="dot" style="background:var(--weather)"></span> Weather shift</div>
+          <p><span class="math">&alpha;<sub>s</sub>&thinsp;&ne;&thinsp;&alpha;<sub>t</sub></span>; <span class="math">f,K</span> fixed. The point set itself changes: drop-out and scatter.</p>
+          <div class="op">&#119967;<sub>&psi;</sub> &ne; Id</div>
+        </div>
+        <div class="tcol j">
+          <div class="h"><span class="dot" style="background:var(--joint)"></span> Joint shift</div>
+          <p><span class="math">f,K,&alpha;</span> all change &mdash; a new sensor operating in bad weather. The composition of both.</p>
+          <div class="op">&#119967;<sub>&psi;</sub> &ne; Id</div>
         </div>
       </div>
     </div>
-  </section>
 
+    <p>Sensor adaptation and weather adaptation are therefore two parameterisations of one operator. ReaLiTy realises it as a composition &mdash; project to a range image, apply a physics-based degradation that reduces to the identity in clear weather, translate intensity under physical conditioning, and back-project to 3D:</p>
 
-<!-- <footer class="footer">
-    <div class="container">
-
+    <div class="theory-box" style="text-align:center;">
+      <div class="eqwrap eqmid math">
+        &#119983;<sub>&psi;,&theta;</sub> <span class="up">=</span>
+        &#119861; <span class="up">&#8728;</span> &#119866;<sub>&theta;</sub> <span class="up">&#8728;</span>
+        &#119967;<sub>&psi;</sub> <span class="up">&#8728;</span> &#119979;
+        <span class="up" style="margin-left:1.4em;color:var(--ink-soft);font-size:15px;">
+        &#119967;<sub>&psi;</sub> = Id&nbsp; when&nbsp; &psi; = clear</span>
+      </div>
+      <p style="font-size:14px;margin-top:4px;">Sensor-only adaptation is simply this operator evaluated in clear weather &mdash; not a separate pipeline.</p>
     </div>
-    <div class="columns is-centered">
-        <div class="column is-8">
-            <div class="content">
-                <p>
-                    We borrow the source code of this website from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> which is licensed
-                    under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-                </p>
 
-            </div>
-        </div>
-    </div>
-    </div>
-</footer> -->
+    <figure>
+      <img src="static/images/fig_taxonomy.jpg" alt="Decomposition of LiDAR domain shift into a scene-invariant factor and the (f,K,alpha) triple." />
+      <figcaption><b>Domain-shift taxonomy.</b> The scene-intrinsic factor &Phi; is invariant across domains; sensor and weather shifts perturb disjoint parts of the triple (f,&nbsp;K,&nbsp;&alpha;), and the joint case is their composition &mdash; all covered by a single operator.</figcaption>
+    </figure>
 
-<footer class="footer">
-    <div class="content has-text-centered">
-        <p>
-            © 2025 ReaLiTy Project. Open-source under MIT License. Developed at 
-            <a href="https://gi-iitk.github.io/"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="font-medium hover:text-blue-400 transition">
-               GI Lab,
-            </a> IIT Kanpur, in collaboration with 
-            <a href="https://www.unb.ca/fredericton/engineering/depts/gge/index.html"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="font-medium hover:text-blue-400 transition">
-               GGE,
-            </a> University of New Brunswick, Canada,
-            <a href="https://sites.google.com/tamu.edu/cvrl/people?authuser=0"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="font-medium hover:text-blue-400 transition">
-               Computer Vision & Robotics Lab,
-            </a> Texas A&M University, USA.
-          </p>
-
-        <p>
-            Developed and led by <a href="https://home.iitk.ac.in/~viveka21/" target="_blank">Vivek Anand</a>, 
-            in collaboration with 
-            <a href="https://simdaas.com/" target="_blank">SimDaaS Autonomy Pvt. Ltd</a>.
-          </p>
+    <div class="two" style="margin-top:26px;">
+      <figure style="margin:0;">
+        <img src="static/images/fig_radiometry.jpg" alt="Range-equation geometry showing the footprint cancels, giving an inverse-square law." />
+        <figcaption><b>Why inverse-square.</b> The beam footprint grows as R&sup2; while the collected solid angle falls as R&sup2;, so it cancels &mdash; an extended target follows an inverse-square, not inverse-fourth, law.</figcaption>
+      </figure>
+      <figure style="margin:0;">
+        <img src="static/images/fig_physics.jpg" alt="Atmospheric extinction versus precipitation rate and two-way transmittance versus range, from Mie theory." />
+        <figcaption><b>Weather as a physical parameter.</b> Extinction is computed from Mie theory with Marshall&ndash;Palmer (rain) and Gunn&ndash;Marshall (snow) drop-size distributions &mdash; controlled by precipitation rate, not a style label.</figcaption>
+      </figure>
     </div>
+
+    <p style="margin-top:26px;">Conditioning is not optional. Because the sensor response <span class="math">f<sub>s</sub></span> saturates and quantises, unconditional intensity translation is ill-posed &mdash; two different scenes can report the same source intensity yet map to different target intensities. Conditioning on the physical modalities <span class="math">(R,&thinsp;cos&thinsp;&theta;,&thinsp;&rho;)</span> restores identifiability, which is the principled reason the model is physics-informed.</p>
+
+    <figure class="fig-narrow">
+      <img src="static/images/fig_identifiability.jpg" alt="Unconditional translation is ill-posed; conditioning on Phi restores identifiability." />
+      <figcaption><b>Why physical conditioning is necessary.</b> Unconditional translation is multi-modal and ill-posed <i>(left)</i>; conditioning on &Phi; determines the pre-image and makes the problem well-posed <i>(right)</i>.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= FRAMEWORK ================= -->
+<section id="framework">
+  <div class="wrap body">
+    <div class="kicker">The Framework</div>
+    <h2 class="sec">A modular, physics-informed pipeline</h2>
+    <p class="lead">ReaLiTy orchestrates two physics-informed cycle-consistent GANs &mdash; <strong>PICGAN</strong> for sensor transfer and <strong>PICWGAN</strong> for weather transfer &mdash; within one unified pipeline for LiDAR realism.</p>
+
+    <div class="two" style="margin-top:24px;">
+      <div class="imgcard">
+        <img src="static/images/CycleGAN_Arch.jpg" alt="PICGAN sensor-transfer architecture" />
+        <div class="cap">Sensor Transfer &mdash; <b>PICGAN</b></div>
+      </div>
+      <div class="imgcard">
+        <img src="static/images/PICWGAN.jpg" alt="PICWGAN weather-transfer architecture" />
+        <div class="cap">Weather Transfer &mdash; <b>PICWGAN</b></div>
+      </div>
+    </div>
+
+    <p style="margin-top:26px;">The training objective combines three complementary terms, each constraining a degree of freedom the others are blind to: an <b>adversarial</b> term fixes absolute calibration against the target sensor, a <b>cycle-consistency</b> term preserves scene content, and a <b>physics</b> term anchors the output to the radiometric structure implied by the range equation. Removing any one leaves a direction of the solution unconstrained.</p>
+
+    <figure class="fig-narrow">
+      <img src="static/images/fig_losses.jpg" alt="The three loss terms constrain disjoint degrees of freedom." />
+      <figcaption><b>Complementary objectives.</b> Adversarial, cycle, and physics losses constrain disjoint degrees of freedom &mdash; distributional realism, scene content, and radiometric structure respectively.</figcaption>
+    </figure>
+
+    <p style="margin-top:26px;">The framework enables:</p>
+    <ul class="feat">
+      <li>Realistic LiDAR intensity across different sensors</li>
+      <li>Adverse-weather effects on benchmark datasets, creating paired data</li>
+      <li>Physics cues: range, incidence angle, and reflectance</li>
+      <li>End-to-end preprocessing, training, inference, and evaluation</li>
+      <li>Ready-to-use weights for sensor and weather transfer</li>
+      <li>Modular, configuration-driven pipelines</li>
+    </ul>
+
+    <figure style="margin-top:30px;">
+      <img src="static/images/reality.png" alt="ReaLiTy end-to-end pipeline" />
+      <figcaption><b>ReaLiTy pipeline.</b> A 3D cloud is projected to a range image carrying physical modalities, degraded by the physics stage, translated to the target-sensor distribution, and back-projected to 3D with geometry preserved.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= REPO STRUCTURE ================= -->
+<section id="repo">
+  <div class="wrap body">
+    <div class="kicker">Repository</div>
+    <h2 class="sec">What&rsquo;s in the framework</h2>
+    <p class="lead">A single configuration-driven package &mdash; dataset adapters, degradation and intensity models, training and inference, and distributional evaluation &mdash; with a detailed usage guide in the repository.</p>
+
+<pre><span class="c"># ReaLiTy repository layout</span>
+reality/
+&#9500;&#9472; <span class="f">cli.py</span>                 <span class="c"># entry point for prepare-data / train / generate / evaluate</span>
+&#9500;&#9472; <span class="d">configs/</span>
+&#9474;    &#9500;&#9472; sensor/            <span class="c"># sensor-transfer configs (e.g. voxelscape_to_kitti.yaml)</span>
+&#9474;    &#9492;&#9472; weather/           <span class="c"># weather-transfer configs (e.g. kitti_to_cadc.yaml)</span>
+&#9500;&#9472; <span class="d">core/</span>                  <span class="c"># config loading, pipeline orchestration, determinism, registry</span>
+&#9500;&#9472; <span class="d">datasets/</span>              <span class="c"># per-dataset adapters (KITTI, nuScenes, CADC, Boreas, VoxelScape, generic)</span>
+&#9500;&#9472; <span class="d">degradation/</span>           <span class="c"># geometric degradation plugins (physics weather, learned)</span>
+&#9500;&#9472; <span class="d">preprocessing/</span>         <span class="c"># spherical projection, statistics, disk cache</span>
+&#9500;&#9472; <span class="d">models/</span>                <span class="c"># intensity models, incl. the vendored PICGAN network and its adapter</span>
+&#9500;&#9472; <span class="d">postprocessing/</span>        <span class="c"># back-projection from range image to point cloud</span>
+&#9500;&#9472; <span class="d">inference/</span>             <span class="c"># checkpoint-driven generation and ONNX export</span>
+&#9500;&#9472; <span class="d">training/</span>              <span class="c"># trainer, dataset wrapper, checkpointing, logging</span>
+&#9500;&#9472; <span class="d">evaluation/</span>            <span class="c"># distributional metrics against the target sensor/weather</span>
+&#9500;&#9472; <span class="d">io/</span>                    <span class="c"># output writers (native per-source format)</span>
+&#9500;&#9472; <span class="d">physics/</span>               <span class="c"># reflectance LUT and ECOSTRESS-derived reflectance lookup</span>
+&#9500;&#9472; <span class="d">structure/weather_model/</span> <span class="c"># vendored LISA scattering model (GPL-3.0, see THIRD_PARTY.md)</span>
+&#9492;&#9472; <span class="d">tests/</span>                 <span class="c"># pytest suite mirroring the package layout</span>
+
+<span class="d">data/</span>          <span class="c"># per-dataset train/test point clouds (see data/README.md)</span>
+<span class="d">weights/</span>       <span class="c"># pretrained checkpoints (see weights/README.md)</span>
+<span class="d">docs/</span>          <span class="c"># extending the weather model and PICGAN</span>
+<span class="d">scripts/</span>       <span class="c"># SLURM training template, run evaluation helper</span>
+<span class="d">tools/</span>         <span class="c"># raw-dataset preparation (prepare_data_kitti_cadc.py)</span></pre>
+
+    <div class="btnrow">
+      <a class="btn" href="https://github.com/voodooed/ReaLiTy-Framework" target="_blank">View Framework on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LADS DATASET ================= -->
+<section id="lads">
+  <div class="wrap body">
+    <div class="kicker">LADS &mdash; LiDAR Adaptation Dataset Suite</div>
+    <h2 class="sec">Transformation-ready, paired point clouds</h2>
+    <p class="lead">Derived from multiple benchmark datasets using ReaLiTy, LADS provides fully processed, physically consistent sweeps &mdash; each in the native format of its source, enabling direct one-to-one comparison with the original scans.</p>
+
+    <div class="gifrow">
+      <div class="gifcard">
+        <img src="static/images/kitti.gif" alt="KITTI clear to snow animation" />
+        <div class="lab"><span class="dot" style="background:var(--weather)"></span> KITTI&nbsp; Clear &#8594; Snow</div>
+      </div>
+      <div class="gifcard">
+        <img src="static/images/nuscenes.gif" alt="nuScenes clear to rain animation" />
+        <div class="lab"><span class="dot" style="background:var(--sensor)"></span> nuScenes&nbsp; Clear &#8594; Rain</div>
+      </div>
+    </div>
+
+    <div class="ladsgrid">
+      <div class="box">
+        <h3><span class="dot" style="background:var(--sensor)"></span> Sensor Adaptation</h3>
+        <ul>
+          <li>VoxelScape &rarr; KITTI</li>
+          <li>VoxelScape &rarr; nuScenes</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3><span class="dot" style="background:var(--weather)"></span> Weather Adaptation</h3>
+        <ul>
+          <li>Clear &rarr; Rain (KITTI)</li>
+          <li>Clear &rarr; Snow (KITTI)</li>
+          <li>Clear &rarr; Rain (nuScenes)</li>
+          <li>Clear &rarr; Snow (nuScenes)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="btnrow">
+      <a class="btn" href="https://www.lidaverse.com/datasets/?id=11" target="_blank">&#128230; Download LADS Dataset</a>
+      <a class="btn ghost" href="https://github.com/voodooed/ReaLiTy-Framework" target="_blank">Usage Guide</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CITATION ================= -->
+<section id="cite">
+  <div class="wrap body">
+    <div class="kicker">Citation</div>
+    <h2 class="sec">BibTeX</h2>
+    <p class="lead">If you find this work useful in your research, please consider citing the relevant papers.</p>
+
+    <details class="bib" open>
+      <summary>ReaLiTy &amp; LADS</summary>
+<pre>@misc{anand2026reality_lads,
+  title         = {ReaLiTy and LADS: A Unified Framework and Dataset Suite for
+                   LiDAR Adaptation Across Sensors and Adverse Weather Conditions},
+  author        = {Anand, Vivek and others},
+  year          = {2026},
+  eprint        = {2604.10213},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.RO},
+  note          = {arXiv preprint}
+  url           = {https://arxiv.org/abs/2604.10213}
+  
+}</pre>
+    </details>
+
+    <details class="bib">
+      <summary>PICGAN &mdash; Sim-to-Real Intensity (IEEE T-ITS 2026)</summary>
+<pre>@article{anand2026sim2real,
+  title   = {Toward Closing the Sim-to-Real Gap: A Physics-Guided Learning
+             Approach for LiDAR Intensity Simulation},
+  author  = {Anand, Vivek and Lohani, Bharat and Kumar, Vaibhav and
+             Mishra, Rakesh and Pandey, Gaurav},
+  journal = {IEEE Transactions on Intelligent Transportation Systems},
+  year    = {2026}, note = {Early access}, doi = {10.1109/TITS.2026.3681982}
+}</pre>
+    </details>
+
+    <details class="bib">
+      <summary>PICWGAN &mdash; Adverse-Weather Simulation (arXiv 2026)</summary>
+<pre>@misc{anand2026weather,
+  title         = {Simulating Realistic LiDAR Data Under Adverse Weather for
+                   Autonomous Vehicles: A Physics-Informed Learning Approach},
+  author        = {Anand, Vivek and Lohani, Bharat and Mishra, Rakesh and Pandey, Gaurav},
+  year          = {2026}, eprint = {2604.01254},
+  archivePrefix = {arXiv}, primaryClass = {cs.RO},
+  url           = {https://arxiv.org/abs/2604.01254}
+}</pre>
+    </details>
+
+    <details class="bib">
+      <summary>LBLIS &mdash; Physics-Based Modalities (IEEE T-ITS 2025)</summary>
+<pre>@article{anand2025lblis,
+  title   = {Advancing LiDAR Intensity Simulation Through Learning With
+             Novel Physics-Based Modalities},
+  author  = {Anand, Vivek and Lohani, Bharat and Pandey, Gaurav and Mishra, Rakesh},
+  journal = {IEEE Transactions on Intelligent Transportation Systems},
+  year    = {2025}, volume = {26}, number = {5}, pages = {6493--6502},
+  doi     = {10.1109/TITS.2025.3532687}
+}</pre>
+    </details>
+
+    <details class="bib">
+      <summary>Snow Intensity Simulation (IEEE IV 2025)</summary>
+<pre>@inproceedings{anand2025snow,
+  title     = {Towards Realistic LiDAR Intensity Simulation in Snowy Weather
+               Using Physics-Informed Learning},
+  author    = {Anand, Vivek and Lohani, Bharat and Mishra, Rakesh and Pandey, Gaurav},
+  booktitle = {IEEE Intelligent Vehicles Symposium (IV)},
+  year      = {2025}, pages = {2552--2557}, doi = {10.1109/IV64158.2025.11097501}
+}</pre>
+    </details>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">ReaLiTy</div>
+      <div class="btnrow" style="margin:0;">
+        <a class="pill solid" href="https://github.com/voodooed/ReaLiTy-Framework" target="_blank">GitHub</a>
+        <a class="pill" style="background:#33445a;border-color:#44566e;color:#fff;" href="https://www.lidaverse.com/datasets/?id=11" target="_blank">Dataset</a>
+      </div>
+    </div>
+    <p>Developed and led by <a href="https://home.iitk.ac.in/~viveka21/">Vivek Anand</a> at
+    <a href="https://gi-iitk.github.io/" target="_blank">GI Lab, IIT Kanpur</a>, in collaboration with
+    <a href="https://www.unb.ca/fredericton/engineering/depts/gge/index.html" target="_blank">GGE, University of New Brunswick</a>,
+    <a href="https://sites.google.com/tamu.edu/cvrl/people?authuser=0" target="_blank">Computer Vision &amp; Robotics Lab, Texas A&amp;M University</a>,
+    and <a href="https://simdaas.com/" target="_blank">SimDaaS Autonomy Pvt. Ltd.</a></p>
+    <p style="margin-top:10px;color:#8ea0b6;">&copy; 2026 ReaLiTy Project &middot; Open-source under MIT License.</p>
+  </div>
 </footer>
 
-
-
-<!-- Change call to action under interactive viz if on mobile -->
-<script>
-    if (navigator.userAgent.match(/Mobile/)) {
-        var paragraphs = document.querySelectorAll('p.hoverMe');
-        paragraphs.forEach(paragraph => {
-                paragraph.textContent = "(Tap and drag me)"
-            }
-        );
-    }
-</script>
 </body>
-
 </html>
